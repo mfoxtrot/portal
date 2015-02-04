@@ -1,0 +1,7 @@
+<%= simple_form_for @anketa, :url => { :action => :new } do |a| %>
+  <%= a.input :name %>
+  <%= a.input :original_name %>
+  <%= a.input :type %>
+  <%= a.input :size %>
+  <%= a.submit %>
+<% end %>
