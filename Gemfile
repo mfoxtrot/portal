@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 # Use Simple Form gem
 gem 'simple_form'
 
+gem 'dragonfly'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
