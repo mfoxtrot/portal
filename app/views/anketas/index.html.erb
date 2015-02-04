@@ -1,0 +1,19 @@
+<br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Имя файла</th>
+      <th>Оригинальное имя</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @anketas.each do |a| %>
+    <tr>
+      <td><%= a.id %></td>
+      <td><%= a.name %></td>
+      <td><%= a.original_name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
