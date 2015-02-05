@@ -1,7 +1,8 @@
-<%= simple_form_for @anketa, :url => { :action => :new } do |a| %>
-  <%= a.input :name %>
+<%= simple_form_for @anketa, :url => { :action => :create } do |a| %>
+<!--  <%= a.input :name %>
   <%= a.input :original_name %>
   <%= a.input :type %>
-  <%= a.input :size %>
+  <%= a.input :size %>-->
+  <%= a.input :image , as: :file %>
   <%= a.submit %>
 <% end %>

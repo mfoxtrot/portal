@@ -39,7 +39,7 @@ class AnketaController < ApplicationController
   private
 
   def anketa_params
-    params.require(:card).permit(:name, :size, :type, :status, :original_name)
+    params.require(:anketa).permit(:image)#.merge(:original_name => :image.name).merge(:size => :image.size).merge(:type => :image.mime_type).merge(:name => :image.name)
   end
 
   def find_anketa

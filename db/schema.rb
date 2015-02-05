@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150204112411) do
+ActiveRecord::Schema.define(version: 20150205111452) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20150204112411) do
     t.string   "type"
     t.integer  "status"
     t.string   "original_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_uid"
+  end
+
+  create_table "regforms", force: true do |t|
+    t.integer  "status"
+    t.string   "image_uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

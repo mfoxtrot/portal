@@ -13,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @anketas.each do |a| %>
+    <% @regform.each do |a| %>
     <tr>
       <td><%= a.id %></td>
       <td><%= a.image.name %></td>
@@ -22,7 +22,7 @@
       <td><%= a.image.mime_type %></td>
       <td><%= a.status %></td>
       <td><%= image_tag(a.image.url, size: "200") %></td>
-      <td><%= link_to "Просмотр", show_anketa_path(a.id) %><br><%= link_to "Удаление", delete_anketa_path(a.id) %></td>
+      <td><%= link_to "Просмотр", edit_regform_path(a) %><br><%= link_to "Удаление", regform_path(a), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger"  %></td>
     </tr>
     <% end %>
   </tbody>
@@ -31,6 +31,6 @@
 <div class="span8"></div>
   <div class="span4">
       <ul class="nav nav-pills">
-        <li><%= link_to "Новая анкета", new_anketum_path %></li>
+        <li><%= link_to "Новая анкета", new_regform_path %></li>
       </ul>
   </div>
