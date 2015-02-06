@@ -1,4 +1,12 @@
-<%= simple_form_for @regform do |a| %>
-  <%= a.input :image, as: :file %>
-  <%= a.submit "Загрузить файл" %>
-<% end %>
+<table>
+  <tr>
+    <td><%= image_tag(@regform.image.url, height: "800") %></td>
+    <td>
+      <%= simple_form_for @regform do |a| %>
+        <%= a.input :barcode, label: "Баркод" %>
+        <%= a.input :image, as: :file, label: "Изображение" %>
+        <%= a.submit "Загрузить файл" %>
+      <% end %>
+    </td>
+  </tr>
+</table>

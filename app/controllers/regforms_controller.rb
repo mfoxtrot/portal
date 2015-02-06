@@ -13,7 +13,10 @@ class RegformsController < ApplicationController
   end
 
   def create
-    if Regform.create(regform_params)
+    @regform = Regform.create(regform_params)
+    if @regform
+      @regform.barcode = @regform.process_barcode
+      @regform.save
       redirect_to regforms_path
     else
       render 'new'
@@ -32,7 +35,7 @@ class RegformsController < ApplicationController
   end
 
   def destroy
-    @regform.image = nil
+    #@regform.image = nil
     @regform.delete
     redirect_to regforms_path
   end

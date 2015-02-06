@@ -6,6 +6,8 @@
       <th>Имя файла</th>
       <th>Оригинальное имя</th>
       <th>Размер</th>
+      <th>Баркод</th>
+      <th>Создано</th>
       <th>Тип</th>
       <th>Статус</th>
       <th>Эскиз</th>
@@ -19,9 +21,11 @@
       <td><%= a.image.name %></td>
       <td><%= a.image.name %></td>
       <td><%= a.image.size %></td>
+      <td><%= a.barcode %></td>
+      <td><%= a.created_at %></td>
       <td><%= a.image.mime_type %></td>
       <td><%= a.status %></td>
-      <td><%= image_tag(a.image.url, size: "200") %></td>
+      <td><%= image_tag(a.image.url, height: "150") %></td>
       <td><%= link_to "Просмотр", edit_regform_path(a) %><br><%= link_to "Удаление", regform_path(a), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger"  %></td>
     </tr>
     <% end %>
