@@ -1,0 +1,26 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Тип карты</th>
+      <th>Владелец</th>
+      <th>Телефон</th>
+      <th>Анкета</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @disccards.each do |a| %>
+    <tr>
+      <td><%= a.number %></td>
+      <td><%= a.disccard_type %></td>
+      <td><%= a.client_name %></td>
+      <td><%= a.client_phone %></td>
+      <td>
+          <% a.regforms.each do |r| %>
+          <%= link_to(image_tag(r.image.url, height: "150"), edit_regform_path(r)) %><br>
+          <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

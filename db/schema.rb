@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206081111) do
+ActiveRecord::Schema.define(version: 20150206121541) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -24,12 +24,24 @@ ActiveRecord::Schema.define(version: 20150206081111) do
     t.string   "image_uid"
   end
 
+  create_table "disccards", force: true do |t|
+    t.string   "number"
+    t.string   "barcode"
+    t.string   "disccard_type"
+    t.string   "client_name"
+    t.string   "client_phone"
+    t.integer  "regform_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "regforms", force: true do |t|
     t.integer  "status"
     t.string   "image_uid"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "barcode"
+    t.integer  "disccard_id"
   end
 
 end

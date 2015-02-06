@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: MyString
+  barcode: MyString
+  type: 
+  client_name: MyString
+  client_phone: MyString
+  regform: 1
+
+two:
+  number: MyString
+  barcode: MyString
+  type: 
+  client_name: MyString
+  client_phone: MyString
+  regform: 1

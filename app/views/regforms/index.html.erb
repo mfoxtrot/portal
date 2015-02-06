@@ -1,4 +1,9 @@
-<br>
+<div class="span8"></div>
+  <div class="span4">
+      <ul class="nav nav-pills">
+        <li><%= link_to "Новая анкета", new_regform_path %></li>
+      </ul>
+  </div>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -26,15 +31,11 @@
       <td><%= a.image.mime_type %></td>
       <td><%= a.status %></td>
       <td><%= image_tag(a.image.url, height: "150") %></td>
-      <td><%= link_to "Просмотр", edit_regform_path(a) %><br><%= link_to "Удаление", regform_path(a), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger"  %></td>
+      <td><%= link_to "Просмотр", edit_regform_path(a) %>
+        <br>
+        <%= link_to "Удаление", regform_path(a), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger"  %>
+      </td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<div class="span8"></div>
-  <div class="span4">
-      <ul class="nav nav-pills">
-        <li><%= link_to "Новая анкета", new_regform_path %></li>
-      </ul>
-  </div>

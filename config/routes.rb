@@ -14,6 +14,7 @@ Portal::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :regforms
+  resources :disccards, only: [:index]
 
   get 'anketa' => 'anketa#index'
   post 'new_anketum' => 'anketa#create', as: :new_anketum
