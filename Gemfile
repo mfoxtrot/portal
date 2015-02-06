@@ -32,7 +32,9 @@ gem 'simple_form'
 
 gem 'dragonfly'
 
-#gem 'zxing'
+#Use SQL Server as database
+gem 'tiny_tds'
+gem 'activerecord-sqlserver-adapter'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -1,6 +1,10 @@
 <table>
   <tr>
-    <td><%= image_tag(@regform.image.url, height: "800") %></td>
+    <td>
+      <% if action_name != 'new' %>
+      <%=  image_tag(@regform.image.url, height: "800") %>
+      <% end %>
+    </td>
     <td>
       <%= simple_form_for @regform do |a| %>
         <%= a.input :barcode, label: "Баркод" %>
