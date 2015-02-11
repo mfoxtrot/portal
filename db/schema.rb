@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150206121541) do
+ActiveRecord::Schema.define(version: 20150210152520) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 20150206121541) do
     t.integer  "regform_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "want_recieve_emails"
+    t.boolean  "want_recieve_sms"
+    t.boolean  "no_calls"
   end
 
   create_table "regforms", force: true do |t|

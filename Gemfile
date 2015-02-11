@@ -36,6 +36,9 @@ gem 'dragonfly'
 gem 'tiny_tds'
 gem 'activerecord-sqlserver-adapter'
 
+#Use pagination gem
+gem 'will_paginate'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

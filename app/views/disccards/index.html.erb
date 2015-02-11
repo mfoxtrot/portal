@@ -1,3 +1,9 @@
+<%= form_tag disccards_path, method: 'get' do %>
+  <% content_tag :label do %>
+    <%= text_field_tag :q, params[:q], placeholder: 'Найти:' %>
+    <%= submit_tag 'Поиск' %>
+  <% end %>
+<% end %>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -5,6 +11,9 @@
       <th>Тип карты</th>
       <th>Владелец</th>
       <th>Телефон</th>
+      <th>СМС</th>
+      <th>Email</th>
+      <th>Не звонить</th>
       <th>Анкета</th>
     </tr>
   </thead>
@@ -15,12 +24,17 @@
       <td><%= a.disccard_type %></td>
       <td><%= a.client_name %></td>
       <td><%= a.client_phone %></td>
+      <td><%= a.want_recieve_sms %></td>
+      <td><%= a.want_recieve_emails %></td>
+      <td><%= a.no_calls %></td>
       <td>
           <% a.regforms.each do |r| %>
           <%= link_to(image_tag(r.image.url, height: "150"), edit_regform_path(r)) %><br>
+          <%= link_to("Увеличить",r.image.url) %><br>
           <% end %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @disccards %>
