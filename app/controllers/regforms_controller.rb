@@ -16,6 +16,7 @@ class RegformsController < ApplicationController
     @regform = Regform.create(regform_params)
     if @regform
       @regform.barcode = @regform.process_barcode
+      @regform.disccard = Disccard.find_by_barcode(@regform.barcode)
       @regform.save
       redirect_to regforms_path
     else
