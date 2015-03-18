@@ -33,7 +33,7 @@ gem 'simple_form'
 gem 'dragonfly'
 
 #Use SQL Server as database
-gem 'tiny_tds'
+gem 'tiny_tds', :git => 'https://github.com/rails-sqlserver/tiny_tds.git'
 gem 'activerecord-sqlserver-adapter'
 
 #Use pagination gem
