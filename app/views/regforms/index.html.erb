@@ -30,7 +30,7 @@
       <td><%= a.created_at %></td>
       <td><%= a.image.mime_type %></td>
       <td><%= a.status %></td>
-      <td><%= image_tag(a.image.url, height: "150") %></td>
+      <td><%= image_tag(a.image.thumb('150x150#').url) if a.image.image? %></td>
       <td><%= link_to "Просмотр", edit_regform_path(a) %>
         <br>
         <%= link_to "Удаление", regform_path(a), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger"  %>
