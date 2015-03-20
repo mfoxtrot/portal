@@ -2,7 +2,7 @@ class RegformsController < ApplicationController
   before_action :find_regform, only: [:destroy, :edit, :update, :show]
 
   def index
-    @regform = Regform.all
+    @regforms = Regform.all.paginate(page: params[:page])
   end
 
   def show
@@ -15,8 +15,8 @@ class RegformsController < ApplicationController
   def create
     @regform = Regform.create(regform_params)
     if @regform
-      @regform.barcode = @regform.process_barcode
-      @regform.disccard = Disccard.find_by_barcode(@regform.barcode)
+      @regform.set_barcode
+      @regform.set_disccard if @regform.barcode != nil
       @regform.save
       redirect_to regforms_path
     else
@@ -26,6 +26,8 @@ class RegformsController < ApplicationController
 
   def update
     if Regform.update(regform_params)
+      @regform.set_disccard if @regform.barcode != nil
+      @regform.save
       redirect_to regforms_path
     else
       render 'edit'
@@ -36,7 +38,6 @@ class RegformsController < ApplicationController
   end
 
   def destroy
-    #@regform.image = nil
     @regform.delete
     redirect_to regforms_path
   end
@@ -44,7 +45,7 @@ class RegformsController < ApplicationController
   private
 
   def regform_params
-    params.require(:regform).permit(:image)
+    params.require(:regform).permit(:image, :barcode)
   end
 
   def find_regform

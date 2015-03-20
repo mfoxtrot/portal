@@ -1,0 +1,25 @@
+<h1>Салоны</h1>
+<%= link_to("Новый салон", new_salon_path) %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Наименование</th>
+      <th>Email</th>
+      <th>Папка</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @salons.each do |a| %>
+    <tr>
+      <td><%= a.id %></td>
+      <td><%= a.name %></td>
+      <td><%= a.email %></td>
+      <td><%= a.anketa_folder %></td>
+      <td>
+          <%= link_to("Редактировать", edit_salon_path(a)) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

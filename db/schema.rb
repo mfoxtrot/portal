@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210152520) do
+ActiveRecord::Schema.define(version: 20150318160255) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -24,8 +24,19 @@ ActiveRecord::Schema.define(version: 20150210152520) do
     t.string   "image_uid"
   end
 
-# Could not dump table "disccards" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "disccards", force: true do |t|
+    t.string   "number"
+    t.string   "barcode"
+    t.string   "disccard_type"
+    t.string   "client_name"
+    t.string   "client_phone"
+    t.integer  "regform_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "want_recieve_emails"
+    t.boolean  "want_recieve_sms"
+    t.boolean  "no_calls"
+  end
 
   create_table "regforms", force: true do |t|
     t.integer  "status"
@@ -34,6 +45,15 @@ ActiveRecord::Schema.define(version: 20150210152520) do
     t.datetime "updated_at"
     t.string   "barcode"
     t.integer  "disccard_id"
+    t.integer  "salon_id"
+  end
+
+  create_table "salons", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "anketa_folder"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

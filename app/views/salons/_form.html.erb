@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <td>
+      <%= simple_form_for @salon do |a| %>
+        <%= a.input :name, label: "Наименование" %>
+        <%= a.input :email, label: "E-mail" %>
+        <%= a.input :anketa_folder, label: "Папка" %>
+        <%= a.submit "Сохранить" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
