@@ -24,6 +24,10 @@ Portal::Application.routes.draw do
   get 'unlinkedregforms', to: 'linkregforms#index', as: :unlinkedregform
   post 'linkregform', to: 'linkregforms#link_regform', as: :linkregform
 
+  resources :linkregforms do
+    get :autocomplete_disccard_number, on: :collection
+  end
+
   # Example resource route with options:
   #   resources :products do
   #     member do

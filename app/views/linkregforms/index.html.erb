@@ -1,3 +1,4 @@
+<p><%= link_to "Все формы", regforms_path %></p>
 <p><%= "Всего #{@total} неприкрепленных форм" %></p>
 <table>
   <tr>
@@ -7,7 +8,11 @@
     <td>
       <%= form_tag  linkregform_path do %>
         <%= hidden_field_tag "id", @regform.id %>
-        <%= text_field_tag "barcode", nil, class: "form-control", placeholder: "Баркод", size: 15 %><br>
+        <%= hidden_field_tag "disccard_id" %>
+        <%= label_tag "Штрихкод" %>
+        <%= text_field_tag "barcode", "" %>
+        <%= label_tag "Номер карты" %>
+        <%= autocomplete_field_tag "disccard", "", autocomplete_disccard_number_linkregforms_path, id_element: '#disccard_id' %><br>
         <%= submit_tag "Сохранить", name: "Submit" %>
       <% end %>
     </td>
