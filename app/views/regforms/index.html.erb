@@ -3,6 +3,9 @@
       <ul class="nav nav-pills">
         <li><%= link_to "Новая анкета", new_regform_path %></li>
       </ul>
+      <ul class="nav nav-pills">
+        <li><%= link_to "Потерянные формы", unlinkedregform_path %></li>
+      </ul>
   </div>
 <table class="table table-bordered">
   <thead>
@@ -12,6 +15,7 @@
       <th>Оригинальное имя</th>
       <th>Размер</th>
       <th>Баркод</th>
+      <th>ДК</th>
       <th>Салон</th>
       <th>Создано</th>
       <th>Тип</th>
@@ -28,6 +32,7 @@
       <td><%= a.image.name %></td>
       <td><%= a.image.size %></td>
       <td><%= a.barcode %></td>
+      <td><%= a.disccard.number if a.disccard != nil %></td>
       <td><%= a.salon.name if a.salon != nil %></td>
       <td><%= a.created_at %></td>
       <td><%= a.image.mime_type %></td>

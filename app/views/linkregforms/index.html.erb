@@ -1,0 +1,15 @@
+<p><%= "Всего #{@total} неприкрепленных форм" %></p>
+<table>
+  <tr>
+    <td>
+      <%= image_tag(@regform.image.url, height: "800") %>
+    </td>
+    <td>
+      <%= form_tag  linkregform_path do %>
+        <%= hidden_field_tag "id", @regform.id %>
+        <%= text_field_tag "barcode", nil, class: "form-control", placeholder: "Баркод", size: 15 %>
+        <%= submit_tag "Сохранить", name: "Submit" %>
+      <% end %>
+    </td>
+  </tr>
+</table>

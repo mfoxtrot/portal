@@ -21,6 +21,9 @@ Portal::Application.routes.draw do
   delete 'anketa/:id' => 'anketa#destroy', as: :delete_anketa
   get 'anketa/:id' => 'anketa#show', as: :show_anketa
 
+  get 'unlinkedregforms', to: 'linkregforms#index', as: :unlinkedregform
+  post 'linkregform', to: 'linkregforms#link_regform', as: :linkregform
+
   # Example resource route with options:
   #   resources :products do
   #     member do
