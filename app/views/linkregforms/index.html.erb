@@ -3,15 +3,15 @@
 <table>
   <tr>
     <td>
-      <%= image_tag(@regform.image.url, width: "1000") %>
+      <%= image_tag(@regform.image.url, width: "800") %>
     </td>
     <td>
       <%= form_tag  linkregform_path do %>
         <%= hidden_field_tag "id", @regform.id %>
-        <%= hidden_field_tag "disccard_id" %>
-        <%= label_tag "Штрихкод" %>
-        <%= text_field_tag "barcode", "" %>
-        <%= label_tag "Номер карты" %>
+        <%= hidden_field_tag "disccard_id","" %><br>
+        <%= label_tag "Штрихкод" %><br>
+        <%= text_field_tag "barcode", "" %><br>
+        <%= label_tag "Номер карты" %><br>
         <%= autocomplete_field_tag "disccard", "", autocomplete_disccard_number_linkregforms_path, id_element: '#disccard_id' %><br>
         <%= submit_tag "Сохранить", name: "Submit" %>
       <% end %>

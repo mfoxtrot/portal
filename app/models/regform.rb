@@ -16,6 +16,6 @@ class Regform < ActiveRecord::Base
     self.disccard = Disccard.find_by_barcode(self.barcode)
   end
 
-  scope :unlinked, -> { where('disccard_id is null') }
+  scope :unlinked, -> { where('disccard_id is null and salon_id=23') }
 
 end
