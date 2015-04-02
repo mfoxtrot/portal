@@ -1,5 +1,7 @@
 class LinkregformsController < ApplicationController
 
+  before_action :authenticate_user!
+
   autocomplete :disccard, :number, full: true, display_value: :full_card_name, extra_data: [:client_name]
 
   def index

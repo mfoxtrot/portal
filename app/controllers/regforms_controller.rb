@@ -1,4 +1,5 @@
 class RegformsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_regform, only: [:destroy, :edit, :update, :show]
 
   def index

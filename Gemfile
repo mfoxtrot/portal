@@ -43,6 +43,9 @@ gem 'will_paginate'
 #Use Autocomplete gem
 gem 'rails4-autocomplete'
 
+#Use Devise gem
+gem 'devise'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

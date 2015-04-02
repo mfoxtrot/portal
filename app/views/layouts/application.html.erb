@@ -12,9 +12,10 @@
     <!--<div class="span8"><h1>Главная страница</h1></div>-->
     <div class="span4">
         <ul class="nav nav-pills">
+          <li><%= link_to("Выход", destroy_user_session_path, method: :delete) if user_signed_in? %>
           <!--<li><%= link_to "Регистрационные формы", regforms_path  %></li>-->
-          <li><%= link_to "Регистрационные формы", regforms_path  %></li>
-          <li><%= link_to "Дисконтные карты", root_path %></li>
+          <li><%= link_to("Регистрационные формы", regforms_path) if user_signed_in? %></li>
+          <li><%= link_to "Дисконтные карты", root_path if user_signed_in? %></li>
         </ul>
     </div>
   </div>
