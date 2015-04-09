@@ -18,3 +18,8 @@
 
 /config/database.yml
 /anketa
+
+/config/environments/*
+/config/initializers/devise.rb
+/config/initializers/dragonfly.rb
+/config/initializers/secret_token.rb
