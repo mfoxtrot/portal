@@ -1,4 +1,4 @@
 class Salon < ActiveRecord::Base
-  belongs_to :linkusertosalon
-  has_many :user, through: :linkusertosalon
+  has_many :link_user_to_salons
+  has_many :users, through: :link_user_to_salons
 end

@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable
 
-  belongs_to :salon
-  has_many :salon, through: linkusertosalon
+  has_many :salons
+  has_many :salons, through: :link_user_to_salons
+
 end
