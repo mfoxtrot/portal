@@ -1,5 +1,6 @@
 <p><%= link_to "Все формы", regforms_path %></p>
 <p><%= "Всего #{@total} неприкрепленных форм" %></p>
+<% if @regform != nil %>
 <table>
   <tr>
     <td>
@@ -18,3 +19,4 @@
     </td>
   </tr>
 </table>
+<% end %>
