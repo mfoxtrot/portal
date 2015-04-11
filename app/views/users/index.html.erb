@@ -1,0 +1,25 @@
+<h1>Пользователи</h1>
+<%= link_to("Новый пользователь", new_user_path) %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Email</th>
+      <th>Имя</th>
+      <th>Фамилия</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |a| %>
+    <tr>
+      <td><%= a.id %></td>
+      <td><%= a.email %></td>
+      <td><%= a.user_name %></td>
+      <td><%= a.user_lastname %></td>
+      <td>
+          <%= link_to("Редактировать", edit_user_path(a)) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

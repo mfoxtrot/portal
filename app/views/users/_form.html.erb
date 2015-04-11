@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <td>
+      <%= simple_form_for @user do |a| %>
+        <%= a.input :email, label: "Email" %>
+        <%= a.input :user_name, label: "Имя" %>
+        <%= a.input :user_lastname, label: "Фамилия" %>
+        <%= a.input :password, label: "Пароль" %>
+        <%= a.submit "Сохранить" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
