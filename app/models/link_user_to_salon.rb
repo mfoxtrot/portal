@@ -1,4 +1,4 @@
-class Link_user_to_salon < ActiveRecord::Base
+class LinkUserToSalon < ActiveRecord::Base
 
   belongs_to :salon
   belongs_to :user
