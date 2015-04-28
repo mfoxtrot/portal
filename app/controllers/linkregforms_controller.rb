@@ -5,8 +5,8 @@ class LinkregformsController < ApplicationController
   autocomplete :disccard, :number, full: true, display_value: :full_card_name, extra_data: [:client_name]
 
   def index
-    @regform = Regform.unlinked.first
-    @total = Regform.unlinked.count
+    @regform = Regform.unlinked(current_user).first
+    @total = Regform.unlinked(current_user).count
   end
 
   def link_regform
