@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402153920) do
+ActiveRecord::Schema.define(version: 20150429084628) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -36,6 +36,11 @@ ActiveRecord::Schema.define(version: 20150402153920) do
     t.boolean  "want_recieve_emails"
     t.boolean  "want_recieve_sms"
     t.boolean  "no_calls"
+  end
+
+  create_table "link_user_to_salons", force: true do |t|
+    t.integer "user_id",  null: false
+    t.integer "salon_id", null: false
   end
 
   create_table "regforms", force: true do |t|
@@ -75,10 +80,5 @@ ActiveRecord::Schema.define(version: 20150402153920) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "users_to_salons", force: true do |t|
-    t.integer "user_id",  null: false
-    t.integer "salon_id", null: false
-  end
 
 end
