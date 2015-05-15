@@ -14,6 +14,8 @@
         <%= text_field_tag "barcode", "" %><br>
         <%= label_tag "Номер карты" %><br>
         <%= autocomplete_field_tag "disccard", "", autocomplete_disccard_number_linkregforms_path, id_element: '#disccard_id' %><br>
+        <%= check_box_tag "weak_quality" %>
+        <%= label_tag "Отстойное качество" %><br>
         <%= submit_tag "Сохранить", name: "Submit" %>
       <% end %>
     </td>

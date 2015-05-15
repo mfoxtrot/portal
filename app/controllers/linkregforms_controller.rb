@@ -14,13 +14,15 @@ class LinkregformsController < ApplicationController
     if params[:barcode] != nil
       @regform.barcode = params[:barcode]
       @regform.set_disccard
-      @regform.save
     end
 
     if params[:disccard_id] != nil and params[:disccard_id] != 0
       @regform.disccard = Disccard.find_by_id(params[:disccard_id])
-      @regform.save
     end
+
+    @regform.weak_quality = params[:weak_quality]
+    @regform.save
+
     redirect_to unlinkedregform_path
   end
 end

@@ -17,6 +17,9 @@ class Regform < ActiveRecord::Base
   end
 
   #scope :unlinked, -> { where('disccard_id is null').where(salon_id: current_user.salons) }
-  scope :unlinked, lambda { |user| where('disccard_id is null').where(salon_id: user.salons) }
+
+  scope :allregforms, -> { where(weak_quality: 0) }
+
+  scope :unlinked, lambda { |user| where('disccard_id is null').where(salon_id: user.salons).where(weak_quality: 0) }
 
 end

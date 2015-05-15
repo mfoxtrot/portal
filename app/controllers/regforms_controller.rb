@@ -3,7 +3,7 @@ class RegformsController < ApplicationController
   before_action :find_regform, only: [:destroy, :edit, :update, :show]
 
   def index
-    @regforms = Regform.all.paginate(page: params[:page])
+    @regforms = Regform.allregforms.paginate(page: params[:page])
   end
 
   def show
