@@ -23,11 +23,11 @@
     <tr>
       <td><%= a.number %></td>
       <td><%= a.disccard_type %></td>
-      <td><%= a.client_name %></td>
-      <td><%= a.client_phone %></td>
-      <td><%= a.want_recieve_sms %></td>
-      <td><%= a.want_recieve_emails %></td>
-      <td><%= a.no_calls %></td>
+      <td><%= a.cardowner.full_name if a.cardowner != nil %></td>
+      <td><%= a.cardowner.cellphone if a.cardowner != nil %></td>
+      <td><%= a.cardowner.allow_sms if a.cardowner != nil %></td>
+      <td><%= a.cardowner.allow_email if a.cardowner != nil %></td>
+      <td><%= a.cardowner.dont_bother if a.cardowner != nil %></td>
       <td>
           <% a.regforms.each do |r| %>
           <%= link_to(image_tag(r.image.url, height: "150"), edit_regform_path(r)) %><br>

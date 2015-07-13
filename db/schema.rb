@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150515111307) do
+ActiveRecord::Schema.define(version: 20150712131200) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -22,6 +22,34 @@ ActiveRecord::Schema.define(version: 20150515111307) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image_uid"
+  end
+
+  create_table "cardownerchildren", force: true do |t|
+    t.integer "cardowner_id"
+    t.string  "child_name"
+    t.date    "date_of_birth"
+  end
+
+  create_table "cardowners", force: true do |t|
+    t.string   "fam"
+    t.string   "name"
+    t.string   "otch"
+    t.date     "date_of_birth"
+    t.string   "cellphone"
+    t.string   "email"
+    t.boolean  "pregnant"
+    t.boolean  "allow_sms"
+    t.boolean  "allow_email"
+    t.boolean  "dont_bother"
+    t.integer  "place_id"
+    t.integer  "channel_id"
+    t.string   "another_channel"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "channels", force: true do |t|
+    t.string "channel_name"
   end
 
   create_table "disccards", force: true do |t|
@@ -36,11 +64,16 @@ ActiveRecord::Schema.define(version: 20150515111307) do
     t.boolean  "want_recieve_emails"
     t.boolean  "want_recieve_sms"
     t.boolean  "no_calls"
+    t.integer  "cardowner_id"
   end
 
   create_table "link_user_to_salons", force: true do |t|
     t.integer "user_id",  null: false
     t.integer "salon_id", null: false
+  end
+
+  create_table "places", force: true do |t|
+    t.string "place_name"
   end
 
   create_table "regforms", force: true do |t|
