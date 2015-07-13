@@ -23,7 +23,7 @@ class SalonsController < ApplicationController
   end
 
   def update
-    if Salon.update(salon_params)
+    if @salon.update(salon_params)
       redirect_to salons_path
     else
       render 'edit'
@@ -41,7 +41,7 @@ class SalonsController < ApplicationController
   private
 
   def salon_params
-    params.require(:salon).permit(:name, :email, :anketa_folder)
+    params.require(:salon).permit(:name, :email, :anketa_folder, :tb_code)
   end
 
   def find_salon

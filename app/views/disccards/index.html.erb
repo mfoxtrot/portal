@@ -1,4 +1,8 @@
-<h1>Дисконтные карты</h1>
+<br>
+<div class="row">
+    <div class="col-md-4"><%= link_to("Дни рождения владельцев", owners_path) %></div>
+</div>
+<h2>Дисконтные карты</h2>
 <%= form_tag disccards_path, method: 'get' do %>
   <% content_tag :label do %>
     <%= text_field_tag :q, params[:q], placeholder: 'Найти:' %>

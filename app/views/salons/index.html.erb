@@ -7,6 +7,7 @@
       <th>Наименование</th>
       <th>Email</th>
       <th>Папка</th>
+      <th>docid ТБ</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
       <td><%= a.name %></td>
       <td><%= a.email %></td>
       <td><%= a.anketa_folder %></td>
+      <td><%= a.tb_code %></td>
       <td>
           <%= link_to("Редактировать", edit_salon_path(a)) %>
       </td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150712131200) do
+ActiveRecord::Schema.define(version: 20150713205948) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150712131200) do
     t.boolean  "want_recieve_sms"
     t.boolean  "no_calls"
     t.integer  "cardowner_id"
+    t.integer  "salon_id"
   end
 
   create_table "link_user_to_salons", force: true do |t|
@@ -93,7 +94,16 @@ ActiveRecord::Schema.define(version: 20150712131200) do
     t.string   "anketa_folder"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tb_code"
   end
+
+  create_table "salons_users", id: false, force: true do |t|
+    t.integer "salon_id"
+    t.integer "user_id"
+  end
+
+  add_index "salons_users", ["salon_id"], name: "index_salons_users_on_salon_id"
+  add_index "salons_users", ["user_id"], name: "index_salons_users_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

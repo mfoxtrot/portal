@@ -25,6 +25,8 @@ Portal::Application.routes.draw do
   get 'unlinkedregforms', to: 'linkregforms#index', as: :unlinkedregform
   post 'linkregform', to: 'linkregforms#link_regform', as: :linkregform
 
+  get 'owners', to: 'cardowners#index', as: :owners
+
   resources :linkregforms do
     get :autocomplete_disccard_number, on: :collection
   end
