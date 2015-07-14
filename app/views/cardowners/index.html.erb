@@ -38,6 +38,9 @@
         <% m.each do |t| %>
           <%= t %><br>
         <% end %>
+        <% if a.last_visit != nil %>
+          <strong>Последний визит: <%= a.last_visit.strftime('%d.%m.%Y') %></strong>
+        <% end %>
       </td>
       <td><%= number_to_phone a.cellphone %></td>
     </tr>

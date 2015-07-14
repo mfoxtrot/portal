@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714120226) do
+ActiveRecord::Schema.define(version: 20150714144504) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150714120226) do
     t.integer  "last_year_docs"
     t.string   "preferable_brands"
     t.string   "preferable_sizes"
+    t.date     "last_visit"
   end
 
   create_table "channels", force: true do |t|
