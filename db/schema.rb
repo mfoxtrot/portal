@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713205948) do
+ActiveRecord::Schema.define(version: 20150714120226) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -46,6 +46,10 @@ ActiveRecord::Schema.define(version: 20150713205948) do
     t.string   "another_channel"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "last_year_sum"
+    t.integer  "last_year_docs"
+    t.string   "preferable_brands"
+    t.string   "preferable_sizes"
   end
 
   create_table "channels", force: true do |t|
@@ -66,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150713205948) do
     t.boolean  "no_calls"
     t.integer  "cardowner_id"
     t.integer  "salon_id"
+    t.boolean  "activity"
   end
 
   create_table "link_user_to_salons", force: true do |t|
