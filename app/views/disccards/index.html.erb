@@ -1,8 +1,9 @@
-<br>
-<div class="row">
-    <div class="col-md-4"><%= link_to("Дни рождения владельцев", owners_path) %></div>
-</div>
 <h2>Дисконтные карты</h2>
+<ul class="nav nav-tabs">
+  <li role="presentaion" class="active"><%= link_to("Все карты", disccards_path) %></li>
+  <li role="presentaion"><%= link_to("Дни рождения клиентов", owners_path) %></li>
+  <li role="presentaion"><%= link_to("Дни рождения детей", "#") %></li>
+</ul>
 <%= form_tag disccards_path, method: 'get' do %>
   <% content_tag :label do %>
     <%= text_field_tag :q, params[:q], placeholder: 'Найти:' %>

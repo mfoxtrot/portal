@@ -1,8 +1,5 @@
 <div class="span8"></div>
   <div class="span4">
-      <!--<ul class="nav nav-pills">
-        <li><%= link_to "Новая анкета", new_regform_path %></li>
-      </ul>-->
       <ul class="nav nav-pills">
         <li><%= link_to "Потерянные формы", unlinkedregform_path %></li>
       </ul>
@@ -38,10 +35,7 @@
       <td><%= a.image.mime_type %></td>
       <td><%= a.status %></td>
       <td><%= image_tag(a.image.thumb('150x150#').url) if a.image.image? %></td>
-      <td><%= link_to "Просмотр", edit_regform_path(a) %>
-        <br>
-        <%= link_to "Удаление", regform_path(a), method: :delete, data: {confirm: "Вы уверены?"}, class: "btn btn-danger"  %>
-      </td>
+      <td><%= link_to "Просмотр", edit_regform_path(a) %></td>
     </tr>
     <% end %>
   </tbody>

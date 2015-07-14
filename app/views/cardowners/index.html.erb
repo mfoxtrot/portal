@@ -1,8 +1,10 @@
+<h2>Дисконтные карты</h2>
+<ul class="nav nav-tabs">
+  <li role="presentaion"><%= link_to("Все карты", disccards_path) %></li>
+  <li role="presentaion" class="active"><%= link_to("Дни рождения клиентов", "#") %></li>
+  <li role="presentaion"><%= link_to("Дни рождения детей", "#") %></li>
+</ul>
 <br>
-<div class="row">
-    <div class="col-md-4"><%= link_to("Дисконтные карты", disccards_path) %></div>
-</div>
-<h2>Дни рождения клиентов</h2>
 <%= form_tag owners_path, method: 'get' do %>
     <%= date_field_tag :date_of_birth, params[:date_of_birth] %>
     <%= submit_tag 'Показать' %>
