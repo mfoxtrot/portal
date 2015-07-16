@@ -2,7 +2,7 @@
 <ul class="nav nav-tabs">
   <li role="presentaion" class="active"><%= link_to("Все карты", disccards_path) %></li>
   <li role="presentaion"><%= link_to("Дни рождения клиентов", owners_path) %></li>
-  <li role="presentaion"><%= link_to("Дни рождения детей", "#") %></li>
+  <li role="presentaion"><%= link_to("Дни рождения детей", children_path) %></li>
 </ul>
 <%= form_tag disccards_path, method: 'get' do %>
   <% content_tag :label do %>

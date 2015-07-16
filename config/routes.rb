@@ -26,6 +26,7 @@ Portal::Application.routes.draw do
   post 'linkregform', to: 'linkregforms#link_regform', as: :linkregform
 
   get 'owners', to: 'cardowners#index', as: :owners
+  get 'children', to: 'cardowners#children', as: :children
 
   resources :linkregforms do
     get :autocomplete_disccard_number, on: :collection

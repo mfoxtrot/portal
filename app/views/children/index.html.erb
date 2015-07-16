@@ -1,49 +1,48 @@
 <h2>Дисконтные карты</h2>
 <ul class="nav nav-tabs">
   <li role="presentaion"><%= link_to("Все карты", disccards_path) %></li>
-  <li role="presentaion" class="active"><%= link_to("Дни рождения клиентов", "#") %></li>
-  <li role="presentaion"><%= link_to("Дни рождения детей", children_path) %></li>
+  <li role="presentaion"><%= link_to("Дни рождения клиентов", owners_path) %></li>
+  <li role="presentaion" class="active"><%= link_to("Дни рождения детей", "#") %></li>
 </ul>
 <br>
 <%= form_tag children_path, method: 'get' do %>
-    <%= date_field_tag :start_date, params[:start_date] %>
-    <%= date_field_tag :start_date, params[:start_date] %>
+    <%= date_field_tag :date_of_birth, params[:date_of_birth] %>
     <%= submit_tag 'Показать' %>
 <% end %>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>ФИО</th>
-      <th>Дата рождения</th>
       <th>Тип карты</th>
       <th><small>Сумма<br>за<br>последний<br>год</small></th>
       <th><small>Чеков<br>за<br>последний<br>год</small></th>
       <th>Предпочтения</th>
       <th>Телефон</th>
+      <th>Ребенок</th>
     </tr>
   </thead>
   <tbody>
     <% @owners.each do |a| %>
-    <tr <% if a.dont_bother == true %>class="danger"<% end %>>
-      <td><%= a.full_name %></td>
-      <td><%= a.date_of_birth.strftime("%d.%m.%Y") %></td>
+    <tr <% if a.cardowner.dont_bother == true %>class="danger"<% end %>>
+      <td><%= a.cardowner.full_name %></td>
       <td>
-          <% a.disccards.each do |d| %>
+          <% a.cardowner.disccards.each do |d| %>
             <% if d.activity != true %><del><% end %><%= d.disccard_type %><% if d.activity != true %></del><% end %><br>
           <% end %>
       </td>
-      <td><%= a.last_year_sum %></td>
-      <td><%= a.last_year_docs %></td>
+      <td><%= a.cardowner.last_year_sum %></td>
+      <td><%= a.cardowner.last_year_docs %></td>
       <td>
-        <% m=a.preferable_brands.split(',') %>
+        <% m=a.cardowner.preferable_brands.split(',') %>
         <% m.each do |t| %>
           <%= t %><br>
         <% end %>
-        <% if a.last_visit != nil %>
-          <strong>Последний визит: <%= a.last_visit.strftime('%d.%m.%Y') %></strong>
+        <% if a.cardowner.last_visit != nil %>
+          <strong>Последний визит: <%= a.cardowner.last_visit.strftime('%d.%m.%Y') %></strong>
         <% end %>
       </td>
-      <td><%= number_to_phone a.cellphone %></td>
+      <td><%= number_to_phone a.cardowner.cellphone %></td>
+      <td><%= a.child_name %><br><%= a.date_of_birth.strftime("%d.%m.%Y") %></td>
     </tr>
     <% end %>
   </tbody>

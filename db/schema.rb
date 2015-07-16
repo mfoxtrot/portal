@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714144504) do
+ActiveRecord::Schema.define(version: 20150715141440) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20150714144504) do
     t.date     "last_visit"
   end
 
+  add_index "cardowners", ["channel_id"], name: "index_channel_on_cardowners"
+  add_index "cardowners", ["place_id"], name: "index_place_on_cardowners"
+
   create_table "channels", force: true do |t|
     t.string "channel_name"
   end
@@ -74,6 +77,9 @@ ActiveRecord::Schema.define(version: 20150714144504) do
     t.boolean  "activity"
   end
 
+  add_index "disccards", ["cardowner_id"], name: "index_cardowner_on_disccards"
+  add_index "disccards", ["salon_id"], name: "index_salon_on_disccards"
+
   create_table "link_user_to_salons", force: true do |t|
     t.integer "user_id",  null: false
     t.integer "salon_id", null: false
@@ -93,6 +99,8 @@ ActiveRecord::Schema.define(version: 20150714144504) do
     t.integer  "salon_id"
     t.boolean  "weak_quality", default: false
   end
+
+  add_index "regforms", ["salon_id"], name: "index_salon_on_regforms"
 
   create_table "salons", force: true do |t|
     t.string   "name"
