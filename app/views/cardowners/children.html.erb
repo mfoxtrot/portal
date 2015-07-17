@@ -6,9 +6,11 @@
 </ul>
 <br>
 <%= form_tag children_path, method: 'get' do %>
-    <%= date_field_tag :date_of_birth, params[:date_of_birth] %>
-    <%= submit_tag 'Показать' %>
+  <%= date_field_tag :start_date, params[:start_date] %>
+  <%= date_field_tag :end_date, params[:end_date] %>
+  <%= submit_tag 'Показать' %>
 <% end %>
+<p><%= "Всего: #{@owners.count}" %></p>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -22,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @owners.each do |a| %>
+    <% @o.each do |a| %>
     <tr <% if a.cardowner.dont_bother == true %>class="danger"<% end %>>
       <td><%= a.cardowner.full_name %></td>
       <td>

@@ -5,11 +5,12 @@
   <li role="presentaion"><%= link_to("Дни рождения детей", children_path) %></li>
 </ul>
 <br>
-<%= form_tag children_path, method: 'get' do %>
+<%= form_tag owners_path, method: 'get' do %>
     <%= date_field_tag :start_date, params[:start_date] %>
-    <%= date_field_tag :start_date, params[:start_date] %>
+    <%= date_field_tag :end_date, params[:end_date] %>
     <%= submit_tag 'Показать' %>
 <% end %>
+<p><%= "Всего: #{@owners.count}" %></p>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>

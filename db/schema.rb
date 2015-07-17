@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715141440) do
+ActiveRecord::Schema.define(version: 20150716214432) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20150715141440) do
     t.string  "child_name"
     t.date    "date_of_birth"
   end
+
+  add_index "cardownerchildren", ["cardowner_id"], name: "index_cardonwerchildren_cardowner"
 
   create_table "cardowners", force: true do |t|
     t.string   "fam"
@@ -79,6 +81,15 @@ ActiveRecord::Schema.define(version: 20150715141440) do
 
   add_index "disccards", ["cardowner_id"], name: "index_cardowner_on_disccards"
   add_index "disccards", ["salon_id"], name: "index_salon_on_disccards"
+
+  create_table "emailcheckresults", force: true do |t|
+    t.integer "cardowner_id"
+    t.string  "email"
+    t.boolean "result"
+    t.string  "comment"
+  end
+
+  add_index "emailcheckresults", ["cardowner_id"], name: "index_emailcheckresults_on_cardowner_id"
 
   create_table "link_user_to_salons", force: true do |t|
     t.integer "user_id",  null: false

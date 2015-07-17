@@ -46,6 +46,9 @@ gem 'rails4-autocomplete'
 #Use Devise gem
 gem 'devise'
 
+#Use Validates_Email_format_of gem
+gem 'validates_email_format_of'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
