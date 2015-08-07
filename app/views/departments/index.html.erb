@@ -1,0 +1,19 @@
+<h2>Подразделения</h2>
+<%= link_to('Новое подразделение', new_department_path) %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th><th>Наименование</th><th>Сортировка</th><th>Адрес</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @departments.each do |d| %>
+      <tr>
+        <td><%= d.id %></td>
+        <td><%= d.nam %></td>
+        <td><%= d.sort_order %></td>
+        <td><%= d.adress %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

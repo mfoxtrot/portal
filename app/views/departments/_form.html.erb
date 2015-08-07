@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <td>
+      <%= simple_form_for @department do |a| %>
+        <%= a.input :nam, placeholder: "Наименование" %>
+        <%= a.input :sort_order, placeholder: "Порядок сортировки" %>
+        <%= a.input :adress, placeholder: "Адрес" %>
+        <%= a.submit "Сохранить" %>
+      <% end %>
+    </td>
+  </tr>
+</table>

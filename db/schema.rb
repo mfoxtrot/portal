@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716214432) do
+ActiveRecord::Schema.define(version: 20150727153657) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 20150716214432) do
     t.string "channel_name"
   end
 
+  create_table "departments", force: true do |t|
+    t.string "nam"
+    t.string "sort_order"
+    t.string "adress"
+  end
+
   create_table "disccards", force: true do |t|
     t.string   "number"
     t.string   "barcode"
@@ -95,6 +101,19 @@ ActiveRecord::Schema.define(version: 20150716214432) do
     t.integer "user_id",  null: false
     t.integer "salon_id", null: false
   end
+
+  create_table "people", force: true do |t|
+    t.string  "fam"
+    t.string  "nam"
+    t.string  "otch"
+    t.string  "cell_phone"
+    t.string  "phone"
+    t.string  "email"
+    t.date    "date_of_birth"
+    t.integer "department_id"
+  end
+
+  add_index "people", ["department_id"], name: "index_people_on_department_id"
 
   create_table "places", force: true do |t|
     t.string "place_name"

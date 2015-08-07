@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <td>
+      <%= simple_form_for @person do |a| %>
+        <%= a.input :fam, placeholder: "Фамилия" %>
+        <%= a.input :nam, placeholder: "Имя" %>
+        <%= a.input :otch, placeholder: "Отчество" %>
+        <%= a.input :phone, placeholder: "Телефон" %>
+        <%= a.input :cell_phone, placeholder: "Моб.телефон" %>
+        <%= a.submit "Сохранить" %>
+      <% end %>
+    </td>
+  </tr>
+</table>

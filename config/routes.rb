@@ -14,7 +14,7 @@ Portal::Application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :regforms, :salons, :users
+  resources :regforms, :salons, :users, :people, :departments
   resources :disccards, only: [:index]
 
   get 'anketa' => 'anketa#index'

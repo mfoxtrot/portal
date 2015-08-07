@@ -1,0 +1,23 @@
+<h2>Список сотрудников</h2>
+<%= link_to("Новый сотрудник", new_person_path) %>
+<table class="table table-bordered">
+  <thead>
+    <th>ФИО</th>
+    <th>Отдел</th>
+    <th>Должность</th>
+    <th></th>
+  </thead>
+	<tbody>
+		<% @people.each do |a| %>
+      <tr>
+        <td><%= a.full_name %>
+        <td></td>
+        <td></td>
+        <td>
+            <%= link_to('Редактировать', edit_person_path(a)) %><br>
+            <%= link_to('Удалить', edit_person_path(a)) %>
+        </td>
+      </tr>
+		<% end %>
+	</tbody>
+</table>
