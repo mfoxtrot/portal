@@ -3,5 +3,7 @@
 <p>Вам доступны следующие приложения:</p>
 <p><%= link_to("Регистрационные формы", regforms_path, class: "btn btn-primary btn-lg enabled") if user_signed_in? %></p>
 <p><%= link_to("Дисконтные карты", disccards_path, class: "btn btn-primary btn-lg enabled") if user_signed_in? %></p>
-<p><a href="#" class="btn btn-primary btn-lg disabled" role="button">Заказы товаров</a></p>
-<p><a href="#" class="btn btn-primary btn-lg disabled" role="button">Архив приказов и распоряжений</a></p>
+<% if can? :update, Anketa %>
+  <p><a href="#" class="btn btn-primary btn-lg disabled" role="button">Заказы товаров</a></p>
+  <p><a href="#" class="btn btn-primary btn-lg disabled" role="button">Архив приказов и распоряжений</a></p>
+<% end %>

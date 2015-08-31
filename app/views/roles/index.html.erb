@@ -1,0 +1,25 @@
+<h1>Роли</h1>
+<%= link_to("Новая роль", new_role_path) %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Код</th>
+      <th>Наименование</th>
+      <th>Приложение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @roles.each do |a| %>
+    <tr>
+      <td><%= a.id %></td>
+      <td><%= a.name %></td>
+      <td><%= a.public_name %></td>
+      <td><%= a.app.nam if a.app!=nil %></td>
+      <td>
+          <%= link_to("Редактировать", edit_role_path(a)) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

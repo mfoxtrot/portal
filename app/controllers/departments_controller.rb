@@ -1,5 +1,5 @@
 class DepartmentsController < ApplicationController
-
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :find_dep, only: [:destroy, :edit, :update, :show]
 

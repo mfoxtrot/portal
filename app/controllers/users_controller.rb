@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :find_user, only: [:destroy, :edit, :update, :show]
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if User.update(user_params)
+    if @user.update(user_params)
       redirect_to users_path
     else
       render 'edit'
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :user_name, :user_lastname, :password)
+    params.require(:user).permit(:email, :user_name, :user_lastname, :password, :role_ids => [])
   end
 
   def find_user

@@ -1,4 +1,5 @@
 class AnketaController < ApplicationController
+  load_and_authorize_resource
   before_action :find_anketa, only: [:destroy, :edit, :update, :show]
 
   def index

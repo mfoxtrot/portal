@@ -1,5 +1,5 @@
 class LinkregformsController < ApplicationController
-
+  load_and_authorize_resource
   before_action :authenticate_user!
 
   autocomplete :disccard, :number, full: true, display_value: :full_card_name, extra_data: [:client_name]

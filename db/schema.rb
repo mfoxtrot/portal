@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727153657) do
+ActiveRecord::Schema.define(version: 20150828104404) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20150727153657) do
     t.datetime "updated_at"
     t.string   "image_uid"
   end
+
+  create_table "apps", force: true do |t|
+    t.string "nam"
+    t.string "url"
+  end
+
+  create_table "assignments", force: true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "assignments", ["role_id"], name: "index_assignments_on_role_id"
+  add_index "assignments", ["user_id"], name: "index_assignments_on_user_id"
 
   create_table "cardownerchildren", force: true do |t|
     t.integer "cardowner_id"
@@ -131,6 +144,14 @@ ActiveRecord::Schema.define(version: 20150727153657) do
   end
 
   add_index "regforms", ["salon_id"], name: "index_salon_on_regforms"
+
+  create_table "roles", force: true do |t|
+    t.string  "name"
+    t.string  "public_name"
+    t.integer "app_id"
+  end
+
+  add_index "roles", ["app_id"], name: "index_roles_on_app_id"
 
   create_table "salons", force: true do |t|
     t.string   "name"

@@ -1,0 +1,23 @@
+<h1>Приложения</h1>
+<%= link_to("Новое приложение", new_app_path) %>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Номер</th>
+      <th>Наименование</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @apps.each do |a| %>
+    <tr>
+      <td><%= a.id %></td>
+      <td><%= a.nam %></td>
+      <td><%= a.url %></td>
+      <td>
+          <%= link_to("Редактировать", edit_app_path(a)) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

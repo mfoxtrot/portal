@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <td>
+      <%= simple_form_for @role do |a| %>
+        <%= a.input :name, label: "Код" %>
+        <%= a.input :public_name, label: "Наименование" %>
+        <%= a.association :app, label_method: :nam, value_method: :id %>
+        <%= a.submit "Сохранить" %>
+      <% end %>
+    </td>
+  </tr>
+</table>

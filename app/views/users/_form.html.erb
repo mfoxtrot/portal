@@ -5,7 +5,17 @@
         <%= a.input :email, label: "Email" %>
         <%= a.input :user_name, label: "Имя" %>
         <%= a.input :user_lastname, label: "Фамилия" %>
-        <%= a.input :password, label: "Пароль" %>
+       <%= a.input :password, label: "Пароль" %>
+       <% for app in App.all %>
+        <h4><%= app.nam %></h2>
+        <% for role in Role.where(app: app) %>
+          <div>
+            <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+            <%=h role.public_name %>
+          </div>
+        <% end %>
+        <% end %>
+          <%= hidden_field_tag "user[role_ids][]","" %>
         <%= a.submit "Сохранить" %>
       <% end %>
     </td>

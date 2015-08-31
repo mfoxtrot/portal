@@ -1,6 +1,7 @@
 class CardownersController < ApplicationController
 
   before_action :authenticate_user!
+  load_and_authorize_resource
   before_action :find_cardowner, only: [:show]
 
   def index
@@ -24,6 +25,7 @@ class CardownersController < ApplicationController
   end
 
   def children
+
     @start_date = Date.parse(params[:start_date]) if params[:start_date] != nil && params[:start_date] != ""
     @start_date = Date.today() if @start_date == nil
 

@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :find_person, only: [:destroy, :edit, :update, :show]
 

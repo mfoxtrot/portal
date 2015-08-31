@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.5'
+gem 'rails', '4.1.11'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -48,6 +48,8 @@ gem 'devise'
 
 #Use Validates_Email_format_of gem
 gem 'validates_email_format_of'
+
+gem 'cancancan'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

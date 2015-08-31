@@ -1,0 +1,11 @@
+<table>
+  <tr>
+    <td>
+      <%= simple_form_for @app do |a| %>
+        <%= a.input :nam, label: "Наименование" %>
+        <%= a.input :url, label: "url" %>
+        <%= a.submit "Сохранить" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
