@@ -11,19 +11,10 @@
   <div class="row">
     <br>
     <div class="col-md-4"><%= link_to("Главное меню", root_path) if user_signed_in? %></div>
-    <div class="col-md-4 col-md-offset-4"><%= link_to("Выход", destroy_user_session_path, method: :delete) if user_signed_in? %></div>
-    <%= current_user.email if current_user != nil %>
-    <% if current_user != nil %>
-      <br>Админ:<%= current_user.has_role?(:admin).to_s %>
-      <br>ДК:<%= current_user.has_role?(:dc_viewer).to_s %>
-      <br>ДК дни:<%= current_user.has_role?(:dc_viewer_birthdays).to_s %>
-      <br>ДК дни дети:<%= current_user.has_role?(:dcviewer_child_birthdays).to_s %>
-      <br>users:<%= can? :read, User %>
-    <% end %>
+    <div class="col-md-4 col-md-offset-4"><%= current_user.email if current_user != nil %> <%= link_to("Выход", destroy_user_session_path, method: :delete) if user_signed_in? %></div>
+    <div class="row">
+      <%= yield %>
+    </div>
   </div>
-  <div class="row">
-    <%= yield %>
-  </div>
-</div>
 </body>
 </html>

@@ -5,17 +5,24 @@
         <%= a.input :email, label: "Email" %>
         <%= a.input :user_name, label: "Имя" %>
         <%= a.input :user_lastname, label: "Фамилия" %>
-       <%= a.input :password, label: "Пароль" %>
-       <% for app in App.all %>
-        <h4><%= app.nam %></h2>
-        <% for role in Role.where(app: app) %>
-          <div>
-            <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-            <%=h role.public_name %>
-          </div>
+        <%= a.input :password, label: "Пароль" %>
+        <h3>Салоны</h3>
+        <% for salon in Salon.all %>
+          <%= check_box_tag "user[salon_ids][]", salon.id, @user.salons.include?(salon) %>
+          <%=h salon.name %>
         <% end %>
+        <%= hidden_field_tag "user[salon_ids][]","" %>
+        <h3>Права пользователя</h3>
+        <% for app in App.all %>
+          <h4><%= app.nam %></h2>
+          <% for role in Role.where(app: app) %>
+            <div>
+              <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+              <%=h role.public_name %>
+            </div>
+          <% end %>
         <% end %>
-          <%= hidden_field_tag "user[role_ids][]","" %>
+        <%= hidden_field_tag "user[role_ids][]","" %>
         <%= a.submit "Сохранить" %>
       <% end %>
     </td>
