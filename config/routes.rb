@@ -19,6 +19,8 @@ Portal::Application.routes.draw do
 
   get 'admin' => 'home#admin'
   get 'anketa' => 'anketa#index'
+  get 'phones' => 'people#index'
+
   post 'new_anketum' => 'anketa#create', as: :new_anketum
   delete 'anketa/:id' => 'anketa#destroy', as: :delete_anketa
   get 'anketa/:id' => 'anketa#show', as: :show_anketa

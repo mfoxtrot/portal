@@ -4,6 +4,9 @@
       <%= simple_form_for @app do |a| %>
         <%= a.input :nam, label: "Наименование" %>
         <%= a.input :url, label: "url" %>
+        <%= a.input :enabled, label: "Активно" %>
+        <%= a.input :admin_only, label: "Только администраторы" %>
+        <%= a.input :hidden, label: "Скрытое" %>
         <%= a.submit "Сохранить" %>
       <% end %>
     </td>

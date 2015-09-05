@@ -14,6 +14,15 @@ class Ability
         can :manage, Cardowner
     end
 
+    if user.has_role? :phones_editor
+        can :manage, Person
+        can :manage, Department
+    end
+
+    if user.has_role? :phones_viewer
+        can :read, Person
+    end
+
     #if user.has_role? :dc_viewer_child_birthdays
     #    can :children, Cardowner
     #end

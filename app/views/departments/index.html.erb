@@ -3,16 +3,25 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>#</th><th>Наименование</th><th>Сортировка</th><th>Адрес</th>
+      <th>#</th>
+      <th>Наименование</th>
+      <th>Сортировка</th>
+      <th>Адрес</th>
+      <th>Телефон</th>
+      <th>Подчиняется</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <% @departments.each do |d| %>
       <tr>
         <td><%= d.id %></td>
-        <td><%= d.nam %></td>
+        <td><%= d.name %></td>
         <td><%= d.sort_order %></td>
         <td><%= d.adress %></td>
+        <td><%= d.phone %></td>
+        <td><%= d.parent.name if d.parent != nil %></td>
+        <td><%= link_to('Редактировать', edit_department_path(d)) %></td>
       </tr>
     <% end %>
   </tbody>

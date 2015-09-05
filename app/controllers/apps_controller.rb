@@ -41,7 +41,7 @@ class AppsController < ApplicationController
   private
 
   def app_params
-    params.require(:app).permit(:nam, :url)
+    params.require(:app).permit(:nam, :url, :enabled, :admin_only, :hidden)
   end
 
   def find_app

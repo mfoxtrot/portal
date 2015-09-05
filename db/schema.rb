@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828104404) do
+ActiveRecord::Schema.define(version: 20150905204207) do
 
   create_table "anketa", force: true do |t|
     t.string   "name"
@@ -25,8 +25,11 @@ ActiveRecord::Schema.define(version: 20150828104404) do
   end
 
   create_table "apps", force: true do |t|
-    t.string "nam"
-    t.string "url"
+    t.string  "nam"
+    t.string  "url"
+    t.boolean "enabled"
+    t.boolean "admin_only"
+    t.boolean "hidden"
   end
 
   create_table "assignments", force: true do |t|
@@ -76,9 +79,11 @@ ActiveRecord::Schema.define(version: 20150828104404) do
   end
 
   create_table "departments", force: true do |t|
-    t.string "nam"
-    t.string "sort_order"
-    t.string "adress"
+    t.string  "name"
+    t.integer "sort_order",    default: 0
+    t.string  "adress"
+    t.string  "phone"
+    t.integer "department_id"
   end
 
   create_table "disccards", force: true do |t|
@@ -124,6 +129,8 @@ ActiveRecord::Schema.define(version: 20150828104404) do
     t.string  "email"
     t.date    "date_of_birth"
     t.integer "department_id"
+    t.string  "position"
+    t.integer "sort_order"
   end
 
   add_index "people", ["department_id"], name: "index_people_on_department_id"

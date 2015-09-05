@@ -2,9 +2,11 @@
   <tr>
     <td>
       <%= simple_form_for @department do |a| %>
-        <%= a.input :nam, placeholder: "Наименование" %>
-        <%= a.input :sort_order, placeholder: "Порядок сортировки" %>
-        <%= a.input :adress, placeholder: "Адрес" %>
+        <%= a.input :name, label: "Наименование" %>
+        <%= a.input :sort_order, label: "Сортировка" %>
+        <%= a.input :adress, label: "Адрес" %>
+        <%= a.input :phone, label: "Телефон" %>
+        <%= a.input :department_id, collection: @head_departments, value_method: :id, label_method: :name, label: "Подчиняется" %>
         <%= a.submit "Сохранить" %>
       <% end %>
     </td>

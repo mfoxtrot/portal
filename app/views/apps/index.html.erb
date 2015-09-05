@@ -6,6 +6,9 @@
       <th>Номер</th>
       <th>Наименование</th>
       <th>URL</th>
+      <th>Активность</th>
+      <th>Админ</th>
+      <th>Скрытое</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +17,9 @@
       <td><%= a.id %></td>
       <td><%= a.nam %></td>
       <td><%= a.url %></td>
+      <td><%= a.enabled %></td>
+      <td><%= a.admin_only %></td>
+      <td><%= a.hidden %></td>
       <td>
           <%= link_to("Редактировать", edit_app_path(a)) %>
       </td>

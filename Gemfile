@@ -51,6 +51,11 @@ gem 'validates_email_format_of'
 
 gem 'cancancan'
 
+group :development do
+  #Use pry gem for debugging
+  gem 'pry-rails'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

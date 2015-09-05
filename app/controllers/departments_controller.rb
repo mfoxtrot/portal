@@ -2,9 +2,10 @@ class DepartmentsController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!
   before_action :find_dep, only: [:destroy, :edit, :update, :show]
+  before_action :get_head_departments, only: [:new, :edit]
 
   def index
-    @departments = Department.all
+    @departments = Department.all.order(:sort_order)
   end
 
   def show
@@ -15,7 +16,7 @@ class DepartmentsController < ApplicationController
   end
 
   def create
-    if Department.create(dep_params)
+    if Department.create(department_params)
       redirect_to departments_path
     else
       render 'new'
@@ -23,7 +24,7 @@ class DepartmentsController < ApplicationController
   end
 
   def update
-    if @department.update(dep_params)
+    if @department.update(department_params)
       redirect_to departments_path
     else
       render 'edit'
@@ -40,11 +41,15 @@ class DepartmentsController < ApplicationController
 
   private
 
-  def dep_params
-    params.require(:department).permit(:nam, :sort_order, :adress)
+  def department_params
+    params.require(:department).permit(:name, :department_id, :sort_order, :adress, :phone)
   end
 
   def find_dep
     @department = Department.find(params[:id])
+  end
+
+  def get_head_departments
+    @head_departments = Department.where(parent: nil)
   end
 end

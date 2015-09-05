@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Base
 
-  belongs_to :deparment
+  belongs_to :department
 
   def full_name
     full_name = self.fam + ' ' + self.nam + ' ' + self.otch

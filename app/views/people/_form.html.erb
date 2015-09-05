@@ -2,11 +2,15 @@
   <tr>
     <td>
       <%= simple_form_for @person do |a| %>
-        <%= a.input :fam, placeholder: "Фамилия" %>
-        <%= a.input :nam, placeholder: "Имя" %>
-        <%= a.input :otch, placeholder: "Отчество" %>
-        <%= a.input :phone, placeholder: "Телефон" %>
-        <%= a.input :cell_phone, placeholder: "Моб.телефон" %>
+        <%= a.input :fam, label: "Фамилия" %>
+        <%= a.input :nam, label: "Имя" %>
+        <%= a.input :otch, label: "Отчество" %>
+        <%= a.input :position, label: "Должность" %>
+        <%= a.input :phone, label: "Телефон" %>
+        <%= a.input :cell_phone, label: "Моб.телефон" %>
+        <%= a.input :email, label: "Email" %>
+        <%= a.input :sort_order, label: "Сортировка" %>
+        <%= a.input :department_id, collection: @departments, value_method: :id, label_method: :name %>
         <%= a.submit "Сохранить" %>
       <% end %>
     </td>

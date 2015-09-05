@@ -2,9 +2,10 @@ class PeopleController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!
   before_action :find_person, only: [:destroy, :edit, :update, :show]
+  before_action :get_departments, only: [:edit, :new, :phones]
 
   def index
-    @people = Person.all
+    @head_departments = Department.head_departments
   end
 
   def show
@@ -15,8 +16,7 @@ class PeopleController < ApplicationController
   end
 
   def create
-    @person = Person.create(person_params)
-    if @person
+    if Person.create(person_params)
       redirect_to people_path
     else
       render 'new'
@@ -42,10 +42,14 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:fam, :nam, :otch, :cell_phone, :phone, :department)
+    params.require(:person).permit(:fam, :nam, :otch, :cell_phone, :phone, :department_id, :position, :email, :sort_order)
   end
 
   def find_person
     @person = Person.find(params[:id])
+  end
+
+  def get_departments
+    @departments = Department.all.order(:name)
   end
 end
